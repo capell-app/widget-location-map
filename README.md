@@ -35,21 +35,45 @@ Screenshot contract: `docs/screenshots.json`.
 
 ![Location Map Widget extension card](docs/screenshots/extension-card.svg)
 
-![Location Map fields in Layout Builder](docs/screenshots/location-map-layout-builder-editor.png)
+![Illustrative location map public output preview](docs/screenshots/location-map-public-output.png)
 
-- Location Map Widget extension card (marketplace, required).
-- Location Map fields in Layout Builder (admin, optional).
-- Location Map public output (frontend, optional).
+- Location Map Widget extension card (marketplace, required evidence).
+- Location Map fields in Layout Builder (admin, supplementary evidence).
+- Illustrative location map public output preview (frontend, required evidence).
+- Location Map fields in Layout Builder with admin sidebar menu open (admin, supplementary evidence).
 
 ## Technical Shape
 
-- Service providers: `Capell\WidgetLocationMap\Providers\WidgetLocationMapServiceProvider`.
-- Filament classes: `LocationMapWidget`.
-- Data objects: `LocationMapInputData`, `LocationMapRenderData`, `LocationMarkerData`.
-- Manifest contributions: `content-widget: Capell\WidgetLocationMap\WidgetLocationMapContribution`.
-- Health checks: `Capell\WidgetLocationMap\Health\WidgetLocationMapHealthCheck`.
-- Blade views: `packages/widget-location-map/resources/views/widget.blade.php`.
-- Cache tags: `widget-location-map`.
+### Service providers
+
+- `Capell\WidgetLocationMap\Providers\WidgetLocationMapServiceProvider`
+
+### Filament classes
+
+- `LocationMapWidget`
+
+### Data objects
+
+- `LocationMapInputData`
+- `LocationMapRenderData`
+- `LocationMarkerData`
+
+### Manifest contributions
+
+- `content-widget: Capell\WidgetLocationMap\WidgetLocationMapContribution`
+
+### Health checks
+
+- `Capell\WidgetLocationMap\Health\WidgetLocationMapHealthCheck`
+
+### Blade views
+
+- `packages/widget-location-map/resources/views/widget.blade.php`
+
+### Cache tags
+
+- `widget-location-map`
+
 
 ## Data Model
 
@@ -60,7 +84,7 @@ This package has no schema impact. It extends Capell through `content-widget` co
 - Required packages: `capell-app/admin`, `capell-app/core`, `capell-app/frontend`, `capell-app/layout-builder`.
 - Admin navigation: no admin page or resource contribution is declared.
 - Admin/editor extensions: `content-widget: WidgetLocationMapContribution`.
-- Permissions: none declared in `capell.json`.
+- Permissions: no package permission declarations or Shield gates detected; host access rules still apply.
 - Public routes: none declared.
 - Database changes: no package migrations declared.
 - Config: no package config files.
@@ -85,8 +109,7 @@ This package has no schema impact. It extends Capell through `content-widget` co
 ## Quick Start
 
 1. Install the package: `composer require capell-app/widget-location-map`.
-2. No package-specific setup command or migrations are declared.
-3. Open the package detail or install-intent surface and confirm the Location Map Widget extension card is present.
+2. Open `/screenshot-fixtures/catalogue/widget-location-map/location-map-public-output` and confirm the public output renders without admin state.
 
 ## Next Steps
 
