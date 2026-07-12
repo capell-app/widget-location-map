@@ -36,8 +36,8 @@
     "contributes": [
         {
             "type": "content-widget",
-            "class": "Capell\\WidgetLocationMap\\WidgetLocationMapContribution",
-            "key": "capell-app.widget-location-map"
+            "key": "capell-app.location-map",
+            "class": "Capell\\WidgetLocationMap\\WidgetLocationMapContribution"
         }
     ],
     "database": {
