@@ -4,7 +4,7 @@
     "slug": "widget-location-map",
     "displayName": "Location Map Widget",
     "kind": "package",
-    "capellApiVersion": "^4.0",
+    "capellApiVersion": "^0.0",
     "version": "0.0.x-dev",
     "description": "Validated latitude and longitude markers with ordinary links and explicit-activation OpenStreetMap embeds.",
     "product": {
@@ -36,8 +36,8 @@
     "contributes": [
         {
             "type": "content-widget",
-            "class": "Capell\\WidgetLocationMap\\WidgetLocationMapContribution",
-            "key": "capell-app.widget-location-map"
+            "key": "capell-app.location-map",
+            "class": "Capell\\WidgetLocationMap\\WidgetLocationMapContribution"
         }
     ],
     "database": {
