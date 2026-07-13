@@ -1,1 +1,22 @@
-.capell-location-map{color:var(--theme-text,#172033)}.capell-location-map__fallback{padding:1rem;border:1px solid var(--theme-border,#cbd5e1);border-radius:var(--theme-radius,.75rem);background:var(--theme-surface,#fff)}.capell-location-map button{min-height:44px;padding:.5rem 1rem}.capell-location-map iframe{display:block;width:100%;min-height:24rem;border:0}.capell-location-map address{font-style:normal}
+.capell-location-map {
+    color: var(--theme-text, #172033);
+}
+.capell-location-map__fallback {
+    padding: 1rem;
+    border: 1px solid var(--theme-border, #cbd5e1);
+    border-radius: var(--theme-radius, 0.75rem);
+    background: var(--theme-surface, #fff);
+}
+.capell-location-map button {
+    min-height: 44px;
+    padding: 0.5rem 1rem;
+}
+.capell-location-map iframe {
+    display: block;
+    width: 100%;
+    min-height: 24rem;
+    border: 0;
+}
+.capell-location-map address {
+    font-style: normal;
+}
