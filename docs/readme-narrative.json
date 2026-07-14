@@ -1,0 +1,35 @@
+{
+    "whatThisPluginAdds": {
+        "text": "Location Map adds a Layout Builder widget for validated place markers with ordinary OpenStreetMap links and an optional interactive embed. The embed is loaded only after explicit activation and can respect Privacy Center decisions.",
+        "evidence": [
+            "src/Filament/LocationMapWidget.php",
+            "resources/views/widget.blade.php",
+            "tests/Feature/WidgetLocationMapTest.php"
+        ]
+    },
+    "surfaceOutcome": {
+        "text": "Editors configure locations in Layout Builder, and visitors initially receive useful map links with the choice to activate the richer public map.",
+        "evidence": [
+            "capell.json",
+            "resources/views/widget.blade.php",
+            "tests/Feature/WidgetLocationMapTest.php"
+        ]
+    },
+    "whyItMatters": {
+        "developers": {
+            "text": "The widget validates marker data and keeps third-party map loading behind an interaction and privacy-aware extension boundary.",
+            "evidence": [
+                "src/Providers/WidgetLocationMapServiceProvider.php",
+                "src/Filament/LocationMapWidget.php",
+                "tests/Feature/WidgetLocationMapTest.php"
+            ]
+        },
+        "teams": {
+            "text": "Teams can publish useful location details before asking visitors to load an external map experience.",
+            "evidence": [
+                "resources/views/widget.blade.php",
+                "tests/Feature/WidgetLocationMapTest.php"
+            ]
+        }
+    }
+}
