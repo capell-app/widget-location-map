@@ -34,6 +34,11 @@
             "required": false,
             "notes": "Capture the coordinate fields and a public location card before activation, with the ordinary link and privacy gate visible. Capture the editor state before the page is published.",
             "useCase": "An editor can see the fields used to configure the Location Map widget.",
+            "url": "/screenshot-fixtures/widgets/location-map/editor",
+            "waitFor": "[data-widget-screenshot-fixture=\"editor\"]",
+            "colorSchemes": [
+                "light"
+            ],
             "screenshotPath": "packages/widget-location-map/docs/screenshots/location-map-layout-builder-editor.png"
         },
         {
@@ -46,6 +51,11 @@
             "required": false,
             "notes": "Capture the coordinate fields and a public location card before activation, with the ordinary link and privacy gate visible. Verify the rendered HTML contains no authoring controls, field paths, model identifiers, or signed admin URLs.",
             "useCase": "A visitor can use a location immediately and choose whether to load third-party map tiles.",
+            "url": "/screenshot-fixtures/widgets/location-map/public",
+            "waitFor": "[data-widget-screenshot-fixture=\"public\"]",
+            "colorSchemes": [
+                "light"
+            ],
             "screenshotPath": "packages/widget-location-map/docs/screenshots/location-map-public-output.png"
         }
     ]

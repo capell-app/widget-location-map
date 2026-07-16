@@ -35,6 +35,8 @@ Screenshot contract: `docs/screenshots.json`.
 
 ![Location Map Widget extension card](docs/screenshots/extension-card.svg)
 
+![Location Map fields in Layout Builder](docs/screenshots/location-map-layout-builder-editor.png)
+
 - Location Map Widget extension card (marketplace, required).
 - Location Map fields in Layout Builder (admin, optional).
 - Location Map public output (frontend, optional).

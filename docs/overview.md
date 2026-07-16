@@ -8,16 +8,17 @@ Location Map lets editors publish one to 20 validated coordinates for offices, v
 
 ## Do I need to do anything?
 
-Add the widget to a page in Layout Builder, complete its fields, and preview the public page before publishing.
+Add **Location Map** in Layout Builder, give it a title, then add one to twenty ordered markers. Each marker needs a label, latitude, and longitude; an address is optional. Coordinates must be within the valid latitude (`-90` to `90`) and longitude (`-180` to `180`) ranges. Preview the public page before publishing.
 
 ## Where it shows up
 
-In Layout Builder, as a Location Map widget with coordinates, labels, and supporting links. The public map enhances only after visitor activation.
+Editors configure it as a Layout Builder widget. The public fallback lists each marker with its optional address and a generated **View on OpenStreetMap** link. The interactive map enhances only after visitor activation and is centred on the first marker.
 
 ## Good to know
 
 - This free beta extension belongs to Capell Foundation and requires Layout Builder.
-- The package does no geocoding and requests OpenStreetMap tiles only after explicit activation and allowed consent.
+- The package does no geocoding: enter the coordinates you want to publish.
+- It requests OpenStreetMap tiles only after explicit activation. When Privacy Center denies `openstreetmap`, the visitor keeps the ordinary links and sees that map loading is disabled.
 
 ## Screenshot status
 
