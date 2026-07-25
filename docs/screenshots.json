@@ -13,6 +13,7 @@
     "entries": [
         {
             "id": "widget-location-map-extension-card",
+            "colorSchemes": ["light"],
             "title": "Location Map Widget extension card.",
             "package": "widget-location-map",
             "surface": "marketplace",
@@ -41,18 +42,18 @@
         },
         {
             "id": "location-map-public-output",
-            "title": "Location Map public output.",
+            "title": "Illustrative location map public output preview.",
             "package": "widget-location-map",
             "surface": "frontend",
-            "targetType": "artifact",
-            "target": "Seeded public page fixture",
-            "required": false,
-            "notes": "Capture the coordinate fields and a public location card before activation, with the ordinary link and privacy gate visible. Verify the rendered HTML contains no authoring controls, field paths, model identifiers, or signed admin URLs.",
+            "targetType": "frontend-url",
+            "target": "/screenshot-fixtures/catalogue/widget-location-map/location-map-public-output",
+            "required": true,
+            "notes": "Illustrative deterministic catalogue fixture, not a live package UI capture. Capture the coordinate fields and a public location card before activation, with the ordinary link and privacy gate visible. Verify the rendered HTML contains no authoring controls, field paths, model identifiers, or signed admin URLs.",
             "useCase": "A visitor can use a location immediately and choose whether to load third-party map tiles.",
-            "url": "/screenshot-fixtures/widgets/location-map/public",
-            "waitFor": "[data-widget-screenshot-fixture=\"public\"]",
-            "colorSchemes": ["light"],
-            "screenshotPath": "packages/widget-location-map/docs/screenshots/location-map-public-output.png"
+            "url": "/screenshot-fixtures/catalogue/widget-location-map/location-map-public-output",
+            "colorSchemes": ["light", "dark"],
+            "screenshotPath": "packages/widget-location-map/docs/screenshots/location-map-public-output.png",
+            "fixtureKind": "illustrative-catalogue"
         }
     ]
 }
