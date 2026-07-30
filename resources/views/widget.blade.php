@@ -1,4 +1,4 @@
-@php /** @var \Capell\WidgetLocationMap\Data\LocationMapRenderData $renderData */ $first=$renderData->markers->first(); @endphp
+@php /** @var \Capell\WidgetLocationMap\Data\LocationMapRenderData $renderData */ $first = $renderData->markers->first(); @endphp
 <section
     class="capell-location-map"
     data-capell-location-map
