@@ -1,7 +1,7 @@
 @php /** @var \Capell\WidgetLocationMap\Data\LocationMapRenderData $renderData */ $first = $renderData->markers->first(); @endphp
 <section
     class="capell-location-map"
-    data-capell-location-map
+    data-capell-widget-location-map
     data-latitude="{{ $first->latitude }}"
     data-longitude="{{ $first->longitude }}"
 >

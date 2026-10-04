@@ -1,4 +1,4 @@
-document.querySelectorAll('[data-capell-location-map]').forEach((root) =>
+document.querySelectorAll('[data-capell-widget-location-map]').forEach((root) =>
     root.querySelector('[data-map-activate]')?.addEventListener('click', () => {
         const status = root.querySelector('[data-map-status]')
         if (window.CapellPrivacy?.allows?.('openstreetmap') === false) {

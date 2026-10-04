@@ -10,8 +10,6 @@ Location Map adds a Layout Builder widget for validated place markers with ordin
 
 Editors configure locations in Layout Builder, and visitors initially receive useful map links with the choice to activate the richer public map.
 
-Evidence: [`src/Filament/LocationMapWidget.php`](src/Filament/LocationMapWidget.php), [`resources/views/widget.blade.php`](resources/views/widget.blade.php), [`tests/Feature/WidgetLocationMapTest.php`](tests/Feature/WidgetLocationMapTest.php), [`capell.json`](capell.json).
-
 Status details:
 
 - Status: Available
@@ -27,19 +25,17 @@ Status details:
 
 **For teams:** Teams can publish useful location details before asking visitors to load an external map experience.
 
-Evidence: [`src/Providers/WidgetLocationMapServiceProvider.php`](src/Providers/WidgetLocationMapServiceProvider.php), [`src/Filament/LocationMapWidget.php`](src/Filament/LocationMapWidget.php), [`tests/Feature/WidgetLocationMapTest.php`](tests/Feature/WidgetLocationMapTest.php), [`resources/views/widget.blade.php`](resources/views/widget.blade.php).
-
 ## Screens And Workflow
 
 Screenshot contract: `docs/screenshots.json`.
 
 ![Location Map Widget extension card](docs/screenshots/extension-card.svg)
 
-![Illustrative location map public output preview](docs/screenshots/location-map-public-output.png)
+![Location Map public output](docs/screenshots/location-map-public-output.png)
 
 - Location Map Widget extension card (marketplace, required evidence).
 - Location Map fields in Layout Builder (admin, supplementary evidence).
-- Illustrative location map public output preview (frontend, required evidence).
+- Location Map public output (frontend, required evidence).
 - Location Map fields in Layout Builder with admin sidebar menu open (admin, supplementary evidence).
 
 ## Technical Shape
@@ -109,7 +105,7 @@ This package has no schema impact. It extends Capell through `content-widget` co
 ## Quick Start
 
 1. Install the package: `composer require capell-app/widget-location-map`.
-2. Open `/screenshot-fixtures/catalogue/widget-location-map/location-map-public-output` and confirm the public output renders without admin state.
+2. Open the package detail or install-intent surface and confirm the Location Map Widget extension card is present.
 
 ## Next Steps
 
@@ -122,6 +118,5 @@ This package has no schema impact. It extends Capell through `content-widget` co
 - [Capell documentation design system](../../docs/DESIGN_SYSTEM.md)
 - [Capell and package ERD notes](../../docs/erd/capell-and-package-erds.md)
 - Related packages: [Layout Builder](../layout-builder/README.md), [Privacy Center](../privacy-center/README.md).
-- Focused tests: `vendor/bin/pest packages/widget-location-map/tests --configuration=phpunit.xml`.
 
 <!-- prettier-ignore-end -->
