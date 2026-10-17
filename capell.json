@@ -38,6 +38,11 @@
             "type": "content-widget",
             "key": "capell-app.location-map",
             "class": "Capell\\WidgetLocationMap\\WidgetLocationMapContribution"
+        },
+        {
+            "type": "asset",
+            "key": "resource-group:capell-app.widget-location-map",
+            "class": "Capell\\WidgetLocationMap\\WidgetLocationMapContribution"
         }
     ],
     "database": {

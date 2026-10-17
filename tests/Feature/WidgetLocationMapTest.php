@@ -1,8 +1,11 @@
 <?php
 
 declare(strict_types=1);
+
+use Capell\Core\Facades\CapellCore;
 use Capell\Frontend\Actions\AssertPublicHtmlContainsNoAuthoringSurfaceAction;
 use Capell\Frontend\Support\Security\PublicHtmlSafetyInspector;
+use Capell\Tests\Support\RenderedHtml;
 use Capell\WidgetLocationMap\Data\LocationMapInputData;
 use Capell\WidgetLocationMap\Data\LocationMapRenderData;
 use Capell\WidgetLocationMap\Data\LocationMarkerData;
@@ -12,6 +15,7 @@ use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\Response;
 
 beforeEach(function (): void {
+    CapellCore::forcePackageInstalled('capell-app/widget-location-map');
     $this->app->register(WidgetLocationMapServiceProvider::class);
 });
 it('builds an ordinary map link and healthy surfaces', function (): void {
@@ -37,4 +41,14 @@ it('renders public location-map markup accepted by the public HTML safety action
     expect(resolve(PublicHtmlSafetyInspector::class)->containsAuthoringSurface(
         '<section data-capell-location-map>Widget</section>',
     ))->toBeTrue();
+});
+
+it('renders the map activation control with the shared button styling', function (): void {
+    $renderData = LocationMapRenderData::from(['title' => 'Office', 'markers' => [['label' => 'Office', 'latitude' => 52.4862, 'longitude' => -1.8904]]]);
+    $html = new RenderedHtml(view('capell-widget-location-map::widget', ['renderData' => $renderData])->render());
+    $button = $html->element('//button[@type="button"][@data-map-activate]');
+    $classes = preg_split('/\s+/', trim($button->getAttribute('class'))) ?: [];
+
+    expect($classes)->toContain('capell-button', 'capell-button--default', 'capell-button--md')
+        ->and(trim($button->textContent))->toBe(__('capell-widget-location-map::widget.activate'));
 });

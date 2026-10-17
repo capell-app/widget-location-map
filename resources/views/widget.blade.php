@@ -23,6 +23,7 @@
             @endforeach
         </ol>
         <button
+            class="capell-button capell-button--default capell-button--md"
             type="button"
             data-map-activate
         >

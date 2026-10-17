@@ -1,7 +1,8 @@
 .capell-location-map {
-    color: var(--theme-text, #172033);
+    color: inherit;
 }
 .capell-location-map__fallback {
+    color: var(--theme-foreground, currentColor);
     padding: 1rem;
     border: 1px solid var(--theme-border, #cbd5e1);
     border-radius: var(--theme-radius, 0.75rem);
@@ -19,4 +20,15 @@
 }
 .capell-location-map address {
     font-style: normal;
+}
+
+/* Brand surfaces stay light; Foundation typography switches at the dark root. */
+.dark .capell-location-map__fallback {
+    color: var(--foundation-body-fg, var(--theme-foreground, currentColor));
+    background: var(--foundation-card-bg, var(--theme-surface, #fff));
+    border-color: var(--foundation-border, var(--theme-border, #cbd5e1));
+}
+
+.dark .capell-location-map__fallback a {
+    color: var(--foundation-primary-action, var(--theme-primary, #1d4ed8));
 }
