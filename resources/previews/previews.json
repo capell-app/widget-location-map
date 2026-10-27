@@ -1,0 +1,8 @@
+{
+    "previews": [
+        {
+            "widget": "capell-app.location-map",
+            "path": "resources/previews/location-map.webp"
+        }
+    ]
+}

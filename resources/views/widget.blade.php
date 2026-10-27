@@ -2,7 +2,9 @@
 <section
     class="capell-location-map"
     data-capell-widget-location-map
+    data-frame-title="{{ __('capell-widget-location-map::widget.frame_title') }}"
     data-latitude="{{ $first->latitude }}"
+    data-denied-label="{{ __('capell-widget-location-map::widget.denied') }}"
     data-longitude="{{ $first->longitude }}"
 >
     <h2>{{ $renderData->title }}</h2>

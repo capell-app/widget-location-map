@@ -31,5 +31,21 @@
                 "tests/Feature/WidgetLocationMapTest.php"
             ]
         }
-    }
+    },
+    "troubleshooting": [
+        {
+            "symptom": "The map is refused",
+            "cause": "It has no markers or more than 20",
+            "check": "Count the markers",
+            "fix": "Keep between 1 and 20 markers",
+            "evidence": ["src/Data/LocationMapInputData.php"]
+        },
+        {
+            "symptom": "A marker is refused",
+            "cause": "Latitude is outside -90 to 90, longitude is outside -180 to 180, or the label is empty",
+            "check": "Check the marker's latitude, longitude and label",
+            "fix": "Enter decimal degrees such as 51.5072 and -0.1276",
+            "evidence": ["src/Data/LocationMarkerData.php"]
+        }
+    ]
 }
