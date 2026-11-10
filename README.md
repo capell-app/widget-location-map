@@ -2,79 +2,48 @@
 
 <!-- prettier-ignore-start -->
 
-## What This Plugin Adds
+## What It Does
 
-Location Map Widget is an **Available**, **No schema impact** Capell package in the **Capell Foundation** product group. It ships as `capell-app/widget-location-map` and extends these surfaces: admin, frontend.
+Location Map adds a Layout Builder widget for validated place markers with ordinary OpenStreetMap links and an optional interactive embed. The embed is loaded only after explicit activation and stays blocked when Privacy Centre records that the visitor refused functional cookies.
 
-Location Map adds a Layout Builder widget for validated place markers with ordinary OpenStreetMap links and an optional interactive embed. The embed is loaded only after explicit activation and can respect Privacy Center decisions.
+- **Price and availability:** Check current availability and price on the [Capell Marketplace listing](https://capell.app/extensions/widget-location-map).
+- **Licence:** Check the licence terms on the [Capell Marketplace listing](https://capell.app/extensions/widget-location-map).
+- **Requires:** `PHP ^8.4`, `capell-app/admin ^1.0`, `capell-app/core ^1.0.66`, `capell-app/frontend ^1.0`, `capell-app/layout-builder ^1.0`, `spatie/laravel-package-tools ^1.0`.
+- **Install:** `composer require capell-app/widget-location-map`.
 
 Editors configure locations in Layout Builder, and visitors initially receive useful map links with the choice to activate the richer public map.
 
-Status details:
-
-- Status: Available
-- Tier: free
-- Bundle: foundation
-- Composer package: `capell-app/widget-location-map`
-- Namespace: `Capell\WidgetLocationMap`
-- Theme key: not applicable
-
-## Why It Matters
+## Who It Is For
 
 **For developers:** The widget validates marker data and keeps third-party map loading behind an interaction and privacy-aware extension boundary.
 
 **For teams:** Teams can publish useful location details before asking visitors to load an external map experience.
 
-## Screens And Workflow
+## Quick Start
 
-Screenshot contract: `docs/screenshots.json`.
+1. Install the package: `composer require capell-app/widget-location-map`.
+2. Open a page, click **Layout builder**, **Add widgets**, then choose **Location Map**.
+
+## Configure
+
+This extension works without configuration. There is nothing to set after install.
+
+## Limits And Pitfalls
+
+- Install the required Capell packages at the versions in `composer.json`: `capell-app/admin ^1.0`, `capell-app/core ^1.0.66`, `capell-app/frontend ^1.0`, `capell-app/layout-builder ^1.0`.
+- Keep public Blade and cached HTML free of authoring markers, model IDs, permissions, signed editor URLs, and lazy database queries.
+- Custom write integrations must preserve invalidation for `widget-location-map` cache tags.
+
+## Screens And Workflow
 
 ![Location Map public output](docs/screenshots/location-map-public-output.png)
 
 ![Location Map fields in Layout Builder](docs/screenshots/location-map-layout-builder-editor.png)
 
-- Location Map Widget extension card (marketplace, supplementary documentation fixture).
-- Location Map fields in Layout Builder (admin, supplementary evidence).
-- Location Map public output (frontend, required evidence).
-- Location Map fields in Layout Builder with admin sidebar menu open (admin, supplementary evidence).
-
-## Technical Shape
-
-### Service providers
-
-- `Capell\WidgetLocationMap\Providers\WidgetLocationMapServiceProvider`
-
-### Filament classes
-
-- `LocationMapWidget`
-
-### Data objects
-
-- `LocationMapInputData`
-- `LocationMapRenderData`
-- `LocationMarkerData`
-
-### Manifest contributions
-
-- `asset: Capell\WidgetLocationMap\WidgetLocationMapContribution`
-- `content-widget: Capell\WidgetLocationMap\WidgetLocationMapContribution`
-
-### Health checks
-
-- `Capell\WidgetLocationMap\Health\WidgetLocationMapHealthCheck`
-
-### Blade views
-
-- `packages/widget-location-map/resources/views/widget.blade.php`
-
-### Cache tags
-
-- `widget-location-map`
-
-
-## Data Model
-
-This package has no schema impact. It extends Capell through `asset` contributions and `content-widget` contributions instead of declaring package-owned tables.
+- Location Map Widget extension card (marketplace).
+- Location Map fields in Layout Builder (admin).
+- Location Map public output (frontend).
+- Location Map fields in Layout Builder with admin sidebar menu open (admin).
 
 ## Install Impact
 
@@ -90,12 +59,6 @@ This package has no schema impact. It extends Capell through `asset` contributio
 - Cache tags: `widget-location-map`.
 - Commands: none declared.
 
-## Common Pitfalls
-
-- Keep required Capell packages on compatible v4 releases: `capell-app/admin`, `capell-app/core`, `capell-app/frontend`, `capell-app/layout-builder`.
-- Keep public Blade and cached HTML free of authoring markers, model IDs, permissions, signed editor URLs, and lazy database queries.
-- Custom write integrations must preserve invalidation for `widget-location-map` cache tags.
-
 ## Troubleshooting
 
 | Symptom | Likely cause | Check | Fix |
@@ -104,11 +67,6 @@ This package has no schema impact. It extends Capell through `asset` contributio
 | Public output leaks unexpected state | Render data, cache variation, or authoring boundary has regressed | Check public Blade, cache tags, and public-output safety tests | Move data loading out of Blade and rerun the package public-output tests |
 | The map is refused | It has no markers or more than 20 | Count the markers | Keep between 1 and 20 markers |
 | A marker is refused | Latitude is outside -90 to 90, longitude is outside -180 to 180, or the label is empty | Check the marker's latitude, longitude and label | Enter decimal degrees such as 51.5072 and -0.1276 |
-
-## Quick Start
-
-1. Install the package: `composer require capell-app/widget-location-map`.
-2. Open a page, click **Layout builder**, **Add widgets**, then choose **Location Map**.
 
 ## Upgrading
 
@@ -119,11 +77,11 @@ No manual steps between minor versions.
 - [Package docs](docs/README.md)
 - [Overview](docs/overview.md)
 - [Troubleshooting](#troubleshooting)
-- [Screenshot contract](docs/screenshots.json)
+- [Developer reference](docs/reference.md)
 - [Marketplace assets](docs/assets/marketplace/)
 - [Capell content language plan](../../docs/CONTENT_LANGUAGE_PLAN.md)
 - [Capell documentation design system](../../docs/DESIGN_SYSTEM.md)
 - [Capell and package ERD notes](../../docs/erd/capell-and-package-erds.md)
-- Related packages: [Layout Builder](../layout-builder/README.md), [Privacy Center](../privacy-center/README.md).
+- Related packages: [Layout Builder](../layout-builder/README.md), [Privacy Centre](../privacy-center/README.md).
 
 <!-- prettier-ignore-end -->

@@ -8,7 +8,7 @@
     "version": "1.0.0",
     "description": "Validated latitude and longitude markers with ordinary links and explicit-activation OpenStreetMap embeds.",
     "product": {
-        "group": "Capell Foundation",
+        "group": "Capell Essentials",
         "tier": "free",
         "bundle": "foundation"
     },
@@ -133,7 +133,34 @@
     },
     "marketplace": {
         "summary": "Privacy-gated OpenStreetMap locations with useful no-JavaScript links.",
+        "description": "Publish one to twenty offices, venues or service points with a plain list of addresses and OpenStreetMap links that work before any map loads. Requires Layout Builder. Limits: coordinates are entered by hand, and the interactive OpenStreetMap map loads only after the visitor chooses to activate it.",
+        "problem": "Visitors looking for a location need directions without being forced to load an interactive map.",
+        "outcome": "A page has location links with an optional visitor-activated map.",
+        "faq": [
+            {
+                "question": "What appears before the map is activated?",
+                "answer": "Visitors initially receive ordinary OpenStreetMap links for the configured places."
+            },
+            {
+                "question": "Can privacy choices block the embed?",
+                "answer": "The optional interactive embed can respect Privacy Centre decisions."
+            },
+            {
+                "question": "How many locations can a map show?",
+                "answer": "A map must have between 1 and 20 markers."
+            }
+        ],
         "screenshots": [
+            {
+                "path": "docs/assets/marketplace/listing-location-map-public-output.png",
+                "alt": "Location Map public output",
+                "caption": "Location Map public output"
+            },
+            {
+                "path": "docs/assets/marketplace/listing-location-map-layout-builder-editor.png",
+                "alt": "Location Map fields in Layout Builder",
+                "caption": "Location Map fields in Layout Builder"
+            },
             {
                 "path": "docs/assets/marketplace/extension-card.jpg",
                 "alt": "Location Map widget preview",

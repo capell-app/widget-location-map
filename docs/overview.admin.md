@@ -14,9 +14,9 @@ Editors configure it as a Layout Builder widget. The public fallback lists each 
 
 - The privacy-denied status and interactive frame title use the active page locale through the `denied` and `frame_title` translations.
 
-- This free beta extension belongs to Capell Foundation and requires Layout Builder.
+- This free beta extension belongs to Capell Essentials and requires Layout Builder.
 - The package does no geocoding: enter the coordinates you want to publish.
-- It requests OpenStreetMap tiles only after explicit activation. When Privacy Center denies `openstreetmap`, the visitor keeps the ordinary links and sees that map loading is disabled.
+- It requests OpenStreetMap tiles only after explicit activation. When Privacy Centre denies `openstreetmap`, the visitor keeps the ordinary links and sees that map loading is disabled.
 
 ## Screenshot status
 

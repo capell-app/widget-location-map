@@ -1,6 +1,6 @@
 {
     "whatThisPluginAdds": {
-        "text": "Location Map adds a Layout Builder widget for validated place markers with ordinary OpenStreetMap links and an optional interactive embed. The embed is loaded only after explicit activation and can respect Privacy Center decisions.",
+        "text": "Location Map adds a Layout Builder widget for validated place markers with ordinary OpenStreetMap links and an optional interactive embed. The embed is loaded only after explicit activation and stays blocked when Privacy Centre records that the visitor refused functional cookies.",
         "evidence": [
             "src/Filament/LocationMapWidget.php",
             "resources/views/widget.blade.php",
