@@ -14,12 +14,12 @@ Editors configure it as a Layout Builder widget. The public fallback lists each 
 
 - The privacy-denied status and interactive frame title use the active page locale through the `denied` and `frame_title` translations.
 
-- This free beta extension belongs to Capell Essentials and requires Layout Builder.
+- This free extension belongs to Capell Essentials and requires Layout Builder.
 - The package does no geocoding: enter the coordinates you want to publish.
 - It requests OpenStreetMap tiles only after explicit activation. When Privacy Centre denies `openstreetmap`, the visitor keeps the ordinary links and sees that map loading is disabled.
 
 ## Screenshot status
 
-Capture the coordinate fields and a public location card before activation, with the ordinary link and privacy gate visible. The committed Marketplace card is interim beta artwork until these two fixture captures are recorded.
+Capture the coordinate fields and a public location card before activation, with the ordinary link and privacy gate visible.
 
 Widgets added through deferred content or inline reveal initialise when the content arrives. Repeated content-ready events do not duplicate listeners or countdown timers.

@@ -6,7 +6,7 @@ Developer reference for `capell-app/widget-location-map`. Start with the [README
 
 ## Package Details
 
-Location Map Widget is an **Available**, **No schema impact** Capell package in the **Capell Essentials** product group. It ships as `capell-app/widget-location-map` and extends these surfaces: admin, frontend.
+Location Map Widget is an **Available** Capell package in the **Capell Essentials** product group. It ships as `capell-app/widget-location-map` and extends these surfaces: admin, frontend.
 
 - Status: Available
 - Tier: free

@@ -1,13 +1,15 @@
-@php /** @var \Capell\WidgetLocationMap\Data\LocationMapRenderData $renderData */ $first = $renderData->markers->first(); @endphp
+@php /** @var \Capell\WidgetLocationMap\Data\LocationMapRenderData $renderData */ $bounds = $renderData->bounds(); $centre = $renderData->centre(); $single = $renderData->singleMarker(); $heading = $renderData->headingTag(); @endphp
 <section
     class="capell-location-map"
     data-capell-widget-location-map
     data-frame-title="{{ __('capell-widget-location-map::widget.frame_title') }}"
-    data-latitude="{{ $first->latitude }}"
+    data-latitude="{{ $centre['latitude'] }}"
+    data-bbox="{{ $bounds['west'] }},{{ $bounds['south'] }},{{ $bounds['east'] }},{{ $bounds['north'] }}"
+    @if ($single) data-marker="{{ $single->latitude }},{{ $single->longitude }}" @endif
     data-denied-label="{{ __('capell-widget-location-map::widget.denied') }}"
-    data-longitude="{{ $first->longitude }}"
+    data-longitude="{{ $centre['longitude'] }}"
 >
-    <h2>{{ $renderData->title }}</h2>
+    <{{ $heading }}>{{ $renderData->title }}</{{ $heading }}>
     <div class="capell-location-map__fallback">
         <ol>
             @foreach ($renderData->markers as $marker)

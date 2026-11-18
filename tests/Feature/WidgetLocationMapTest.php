@@ -77,3 +77,44 @@ it('uses translated denial and iframe names when activating the public map', fun
 
     expect($process->getExitCode())->toBe(0, $process->getErrorOutput() . $process->getOutput());
 });
+
+it('fits the embed window around every marker and centres on all of them', function (): void {
+    $renderData = LocationMapRenderData::from(['title' => 'Offices', 'markers' => [
+        ['label' => 'Birmingham', 'latitude' => 52.4862, 'longitude' => -1.8904],
+        ['label' => 'Edinburgh', 'latitude' => 55.9533, 'longitude' => -3.1883],
+        ['label' => 'Cardiff', 'latitude' => 51.4816, 'longitude' => -3.1791],
+    ]]);
+    $bounds = $renderData->bounds();
+
+    expect($bounds['west'])->toBeLessThan(-3.1883)
+        ->and($bounds['east'])->toBeGreaterThan(-1.8904)
+        ->and($bounds['south'])->toBeLessThan(51.4816)
+        ->and($bounds['north'])->toBeGreaterThan(55.9533);
+
+    $section = (new RenderedHtml(view('capell-widget-location-map::widget', ['renderData' => $renderData])->render()))->element('//section[@data-capell-widget-location-map]');
+    [$west, $south, $east, $north] = array_map('floatval', explode(',', $section->getAttribute('data-bbox')));
+
+    expect($west)->toBe($bounds['west'])->and($north)->toBe($bounds['north'])
+        ->and((float) $section->getAttribute('data-latitude'))->toBe(round(($south + $north) / 2, 6))
+        ->and((float) $section->getAttribute('data-longitude'))->toBe(round(($west + $east) / 2, 6))
+        ->and($section->hasAttribute('data-marker'))->toBeFalse();
+});
+
+it('marks a single place and keeps a neighbourhood sized window around it', function (): void {
+    $renderData = LocationMapRenderData::from(['title' => 'Office', 'markers' => [['label' => 'Office', 'latitude' => 52.4862, 'longitude' => -1.8904]]]);
+    $section = (new RenderedHtml(view('capell-widget-location-map::widget', ['renderData' => $renderData])->render()))->element('//section[@data-capell-widget-location-map]');
+
+    expect($section->getAttribute('data-marker'))->toBe('52.4862,-1.8904')
+        ->and($section->getAttribute('data-bbox'))->toBe('-1.9104,52.4662,-1.8704,52.5062');
+});
+
+it('renders the heading at an allowlisted level and falls back to h2', function (string $level, string $tag): void {
+    $renderData = LocationMapRenderData::from(['title' => 'Office', 'headingLevel' => $level, 'markers' => [['label' => 'Office', 'latitude' => 52.4862, 'longitude' => -1.8904]]]);
+    $html = new RenderedHtml(view('capell-widget-location-map::widget', ['renderData' => $renderData])->render());
+
+    expect($html->element('//section/*[self::h1 or self::h2 or self::h3 or self::h4 or self::h5 or self::h6][1]')->nodeName)->toBe($tag);
+})->with([['h3', 'h3'], ['h6', 'h6'], ['h1', 'h2'], ['script', 'h2']]);
+
+it('validates the heading level on input', function (): void {
+    expect(fn (): LocationMapInputData => LocationMapInputData::validateAndCreate(['title' => 'Map', 'headingLevel' => 'h1', 'markers' => [['label' => 'A', 'latitude' => 1, 'longitude' => 1]]]))->toThrow(ValidationException::class);
+});

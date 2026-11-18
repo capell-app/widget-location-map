@@ -1,20 +1,4 @@
 {
-    "whatThisPluginAdds": {
-        "text": "Location Map adds a Layout Builder widget for validated place markers with ordinary OpenStreetMap links and an optional interactive embed. The embed is loaded only after explicit activation and stays blocked when Privacy Centre records that the visitor refused functional cookies.",
-        "evidence": [
-            "src/Filament/LocationMapWidget.php",
-            "resources/views/widget.blade.php",
-            "tests/Feature/WidgetLocationMapTest.php"
-        ]
-    },
-    "surfaceOutcome": {
-        "text": "Editors configure locations in Layout Builder, and visitors initially receive useful map links with the choice to activate the richer public map.",
-        "evidence": [
-            "capell.json",
-            "resources/views/widget.blade.php",
-            "tests/Feature/WidgetLocationMapTest.php"
-        ]
-    },
     "whyItMatters": {
         "developers": {
             "text": "The widget validates marker data and keeps third-party map loading behind an interaction and privacy-aware extension boundary.",
@@ -23,29 +7,6 @@
                 "src/Filament/LocationMapWidget.php",
                 "tests/Feature/WidgetLocationMapTest.php"
             ]
-        },
-        "teams": {
-            "text": "Teams can publish useful location details before asking visitors to load an external map experience.",
-            "evidence": [
-                "resources/views/widget.blade.php",
-                "tests/Feature/WidgetLocationMapTest.php"
-            ]
         }
-    },
-    "troubleshooting": [
-        {
-            "symptom": "The map is refused",
-            "cause": "It has no markers or more than 20",
-            "check": "Count the markers",
-            "fix": "Keep between 1 and 20 markers",
-            "evidence": ["src/Data/LocationMapInputData.php"]
-        },
-        {
-            "symptom": "A marker is refused",
-            "cause": "Latitude is outside -90 to 90, longitude is outside -180 to 180, or the label is empty",
-            "check": "Check the marker's latitude, longitude and label",
-            "fix": "Enter decimal degrees such as 51.5072 and -0.1276",
-            "evidence": ["src/Data/LocationMarkerData.php"]
-        }
-    ]
+    }
 }

@@ -32,3 +32,7 @@
 .dark .capell-location-map__fallback a {
     color: var(--foundation-primary-action, var(--theme-primary, #1d4ed8));
 }
+
+.capell-location-map [data-map-activate][hidden] {
+    display: none;
+}

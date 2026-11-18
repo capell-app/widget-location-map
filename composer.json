@@ -1,6 +1,6 @@
 {
     "name": "capell-app/widget-location-map",
-    "description": "Privacy-gated OpenStreetMap location widget for Capell.",
+    "description": "Location list widget for Capell pages with addresses, OpenStreetMap links and an interactive map that loads only on request. Needs Layout Builder.",
     "type": "library",
     "license": "proprietary",
     "require": {

@@ -6,7 +6,7 @@
     "kind": "package",
     "capellApiVersion": "^1.0",
     "version": "1.0.0",
-    "description": "Validated latitude and longitude markers with ordinary links and explicit-activation OpenStreetMap embeds.",
+    "description": "A numbered list of up to twenty places with addresses and OpenStreetMap links, plus a map that loads on request.",
     "product": {
         "group": "Capell Essentials",
         "tier": "free",
@@ -59,7 +59,7 @@
     },
     "settings": [],
     "permissions": [],
-    "capabilities": ["frontend.public-static"],
+    "capabilities": ["frontend-surface"],
     "security": {
         "riskTier": "low",
         "publicSurface": {
@@ -132,41 +132,63 @@
         "privateDocsRequested": false
     },
     "marketplace": {
-        "summary": "Privacy-gated OpenStreetMap locations with useful no-JavaScript links.",
-        "description": "Publish one to twenty offices, venues or service points with a plain list of addresses and OpenStreetMap links that work before any map loads. Requires Layout Builder. Limits: coordinates are entered by hand, and the interactive OpenStreetMap map loads only after the visitor chooses to activate it.",
-        "problem": "Visitors looking for a location need directions without being forced to load an interactive map.",
-        "outcome": "A page has location links with an optional visitor-activated map.",
+        "summary": "Your offices or branches listed with addresses and map links, and an OpenStreetMap view only when a visitor asks.",
+        "description": "List up to twenty offices or branches on a page built in Layout Builder, each numbered with its name, an optional address and a link to OpenStreetMap. You enter each place's latitude and longitude by hand. A button below the list loads an interactive map, and nothing comes from OpenStreetMap until a visitor presses it. The map frames every place and marks one only when the list has a single place. If Privacy Centre is on and a visitor has refused OpenStreetMap, they see a short note in place of the map.",
+        "problem": "I want visitors to find our places, but a map that loads for everyone slows the page.",
+        "outcome": "Every address comes with a map link, and the interactive map loads on one click.",
         "faq": [
             {
-                "question": "What appears before the map is activated?",
-                "answer": "Visitors initially receive ordinary OpenStreetMap links for the configured places."
+                "question": "Is this Google Maps?",
+                "answer": "No. The map is OpenStreetMap."
             },
             {
-                "question": "Can privacy choices block the embed?",
-                "answer": "The optional interactive embed can respect Privacy Centre decisions."
+                "question": "What do visitors see before the map loads?",
+                "answer": "A list of your places, up to twenty, each with its name, an address if you gave one and a link that opens OpenStreetMap at that spot. Nothing is requested from OpenStreetMap until a visitor presses Load interactive map."
             },
             {
-                "question": "How many locations can a map show?",
-                "answer": "A map must have between 1 and 20 markers."
+                "question": "Which places appear on the interactive map?",
+                "answer": "The map opens on an area wide enough to take in every place in your list. A pin marks the spot only when the list holds a single place, so with several places visitors see the area without pins."
+            },
+            {
+                "question": "Can visitors search by postcode?",
+                "answer": "No. For each place you enter a latitude and a longitude, which you can copy from a map app."
+            },
+            {
+                "question": "What if a visitor has declined cookies?",
+                "answer": "If your site runs Privacy Centre and they turned down functional cookies, pressing the button shows a short note and no map loads. The list and its links work for everyone either way."
             }
         ],
         "screenshots": [
             {
                 "path": "docs/assets/marketplace/listing-location-map-public-output.png",
-                "alt": "Location Map public output",
-                "caption": "Location Map public output"
+                "alt": "Two places with addresses and View on OpenStreetMap links, a Load interactive map button and a credit line",
+                "caption": "The list works as plain links, and the interactive map loads only when a visitor asks for it."
             },
             {
                 "path": "docs/assets/marketplace/listing-location-map-layout-builder-editor.png",
-                "alt": "Location Map fields in Layout Builder",
-                "caption": "Location Map fields in Layout Builder"
+                "alt": "Page editor with a Location Map block open, showing a title and a Harbour Studio marker with coordinates and address",
+                "caption": "Each place needs a label, a latitude and a longitude, and can have an address."
             },
             {
                 "path": "docs/assets/marketplace/extension-card.jpg",
-                "alt": "Location Map widget preview",
-                "caption": "Location Map widget"
+                "alt": "Marketplace card for the Location Map widget with a map page and an editor screen and the steps Install, Use and Evolve",
+                "caption": "Card used for the widget's Marketplace listing."
             }
         ],
         "categories": ["foundation", "frontend", "location"]
+    },
+    "contributionTraceability": {
+        "contributions": [
+            {
+                "type": "asset",
+                "key": "resource-group:capell-app.widget-location-map",
+                "providerBucket": "runtime"
+            },
+            {
+                "type": "content-widget",
+                "key": "capell-app.location-map",
+                "providerBucket": "runtime"
+            }
+        ]
     }
 }
