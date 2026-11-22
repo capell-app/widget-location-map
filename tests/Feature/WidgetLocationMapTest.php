@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
+use Capell\Core\Contracts\Privacy\ConsentDecisionProvider;
+use Capell\Core\Enums\ConsentCategory;
 use Capell\Core\Facades\CapellCore;
+use Capell\Core\Support\Privacy\ConsentSettings;
 use Capell\Frontend\Actions\AssertPublicHtmlContainsNoAuthoringSurfaceAction;
 use Capell\Frontend\Support\Security\PublicHtmlSafetyInspector;
 use Capell\Tests\Support\RenderedHtml;
@@ -11,6 +14,7 @@ use Capell\WidgetLocationMap\Data\LocationMapRenderData;
 use Capell\WidgetLocationMap\Data\LocationMarkerData;
 use Capell\WidgetLocationMap\Health\WidgetLocationMapHealthCheck;
 use Capell\WidgetLocationMap\Providers\WidgetLocationMapServiceProvider;
+use Illuminate\Http\Request;
 use Illuminate\Translation\Translator;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\Response;
@@ -117,4 +121,12 @@ it('renders the heading at an allowlisted level and falls back to h2', function 
 
 it('validates the heading level on input', function (): void {
     expect(fn (): LocationMapInputData => LocationMapInputData::validateAndCreate(['title' => 'Map', 'headingLevel' => 'h1', 'markers' => [['label' => 'A', 'latitude' => 1, 'longitude' => 1]]]))->toThrow(ValidationException::class);
+});
+
+it('declares the openstreetmap purpose as functional so the default consent provider can decide it', function (): void {
+    config()->set('capell.privacy.consent.purposes', []);
+    $provider = resolve(ConsentDecisionProvider::class);
+
+    expect($provider->purposes())->toHaveKey('openstreetmap', 'functional')
+        ->and($provider->decide('openstreetmap', Request::create('/')))->toBe(resolve(ConsentSettings::class)->defaultDecision(ConsentCategory::Functional));
 });
